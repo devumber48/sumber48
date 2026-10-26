@@ -1,33 +1,193 @@
+
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Sumber48</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#100b1d">
+  <title>SUMBER48 | Website Resmi</title>
   <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
-      background: #0b1020;
-      color: white;
       font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 40px 15px;
+      background: #100b1d;
+      color: #f8f5ff;
+      min-height: 100vh;
+      line-height: 1.6;
     }
-    .card {
-      max-width: 400px;
+
+    header {
+      padding: 20px;
+      border-bottom: 1px solid #332449;
+      background: #171025;
+    }
+
+    .nav {
+      max-width: 1000px;
       margin: auto;
-      padding: 25px;
-      background: #17223a;
-      border-radius: 15px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
     }
-    h1 { color: #e5bd68; }
-    p { color: #cbd5e1; }
+
+    .logo {
+      font-size: 23px;
+      font-weight: 800;
+      letter-spacing: 2px;
+    }
+
+    .logo span { color: #b794ff; }
+
+    .status {
+      color: #d8c6ff;
+      border: 1px solid #60418c;
+      padding: 5px 10px;
+      border-radius: 20px;
+      font-size: 12px;
+    }
+
+    main {
+      max-width: 1000px;
+      margin: auto;
+      padding: 55px 20px;
+    }
+
+    .hero {
+      padding: 35px 24px;
+      border: 1px solid #493263;
+      border-radius: 22px;
+      background: linear-gradient(140deg, #29183f, #171025 70%);
+    }
+
+    .tag {
+      color: #c9aaff;
+      font-size: 12px;
+      font-weight: bold;
+      letter-spacing: 2px;
+    }
+
+    h1 {
+      font-size: clamp(32px, 8vw, 52px);
+      line-height: 1.15;
+      margin: 16px 0;
+    }
+
+    h1 span { color: #b794ff; }
+
+    .intro {
+      color: #c4bbd2;
+      max-width: 560px;
+      margin-bottom: 25px;
+    }
+
+    .button {
+      display: inline-block;
+      background: #8b5cf6;
+      color: white;
+      padding: 12px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    .section-title {
+      margin: 35px 0 15px;
+      font-size: 21px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 15px;
+    }
+
+    .item {
+      background: #1b1428;
+      border: 1px solid #38284b;
+      border-radius: 15px;
+      padding: 22px;
+    }
+
+    .item h3 { margin-bottom: 8px; }
+    .item p { color: #bdb3cb; font-size: 14px; }
+
+    .symbol {
+      font-size: 25px;
+      margin-bottom: 10px;
+    }
+
+    .notice {
+      margin-top: 25px;
+      padding: 16px;
+      border-left: 3px solid #a78bfa;
+      background: #1b1428;
+      color: #c4bbd2;
+      font-size: 13px;
+      border-radius: 5px;
+    }
+
+    footer {
+      text-align: center;
+      padding: 25px 15px;
+      color: #8f849f;
+      border-top: 1px solid #332449;
+      font-size: 12px;
+    }
   </style>
 </head>
 <body>
-  <div class="card">
-    <h1>SUMBER48</h1>
-    <p>Selamat datang di website kami.</p>
-    <p>Website sedang disiapkan.</p>
-  </div>
+  <header>
+    <div class="nav">
+      <div class="logo">SUMBER<span>48</span></div>
+      <div class="status">Website Resmi</div>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="tag">SELAMAT DATANG</div>
+      <h1>Solusi usaha<br><span>lebih praktis.</span></h1>
+      <p class="intro">
+        Selamat datang di Sumber48. Temukan informasi
+        layanan usaha dalam tampilan yang sederhana,
+        nyaman, dan mudah digunakan.
+      </p>
+      <a class="button" href="#layanan">Lihat Layanan</a>
+    </section>
+
+    <h2 class="section-title" id="layanan">Layanan Kami</h2>
+
+    <section class="grid">
+      <article class="item">
+        <div class="symbol">◈</div>
+        <h3>Informasi Usaha</h3>
+        <p>Temukan informasi layanan dan panduan untuk pelanggan.</p>
+      </article>
+
+      <article class="item">
+        <div class="symbol">▣</div>
+        <h3>Pembayaran Resmi</h3>
+        <p>Informasi pembayaran akan tersedia melalui kanal resmi yang terverifikasi.</p>
+      </article>
+
+      <article class="item">
+        <div class="symbol">✦</div>
+        <h3>Bantuan Pelanggan</h3>
+        <p>Informasi bantuan akan ditambahkan setelah kontak resmi tersedia.</p>
+      </article>
+    </section>
+
+    <div class="notice">
+      Keamanan pelanggan adalah prioritas. Pastikan setiap
+      transaksi dilakukan melalui penyedia pembayaran resmi.
+      Jangan bagikan PIN atau kode OTP kepada siapa pun.
+    </div>
+  </main>
+
+  <footer>
+    © 2026 SUMBER48 · Informasi Layanan Usaha
+  </footer>
 </body>
 </html>
