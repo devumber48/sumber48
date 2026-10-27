@@ -3,127 +3,138 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width,initial-scale=1">
 <meta name="theme-color" content="#10091c">
-<title>SUMBER48 — Gaming Portal</title>
+<title>SUMBER48 — Game Hub</title>
 <style>
 :root {
   --bg:#10091c;
-  --panel:#1b1229;
-  --line:#38244f;
+  --panel:#1d142b;
+  --line:#3b2852;
   --purple:#9255f6;
-  --light:#cdb0ff;
-  --text:#f8f5ff;
+  --light:#d3b7ff;
+  --text:#faf7ff;
   --muted:#a99bbd;
 }
-* {box-sizing:border-box}
-body {
+*{box-sizing:border-box}
+body{
   margin:0;background:var(--bg);color:var(--text);
-  font-family:Arial,Helvetica,sans-serif;
+  font-family:Arial,sans-serif;
 }
-button {font:inherit;cursor:pointer}
-header {
+header{
   position:sticky;top:0;z-index:5;
-  background:#160e23;border-bottom:1px solid var(--line);
-  padding:13px 16px;
+  background:#170f23;border-bottom:1px solid var(--line);
+  padding:15px;
 }
-.top {
+.top{
   max-width:900px;margin:auto;display:flex;
-  align-items:center;justify-content:space-between;gap:12px;
+  justify-content:space-between;align-items:center;
 }
-.logo {font-size:22px;font-weight:900;letter-spacing:1.5px}
-.logo span {color:var(--light)}
-.pill {
-  border:1px solid #604187;border-radius:20px;
-  padding:6px 10px;color:var(--light);font-size:11px;
+.logo{font-size:23px;font-weight:900;letter-spacing:2px}
+.logo span{color:var(--light)}
+.badge{
+  color:#d6bdff;background:#2b1b40;border:1px solid #65438c;
+  border-radius:20px;padding:6px 10px;font-size:11px;
 }
-main {max-width:900px;margin:auto;padding:16px 14px 95px}
-.demo {
-  text-align:center;font-size:11px;letter-spacing:1px;
-  color:#f2c878;background:#302314;border:1px solid #654b24;
-  padding:9px;border-radius:9px;margin-bottom:15px;
+main{max-width:900px;margin:auto;padding:17px 14px 90px}
+.notice{
+  text-align:center;font-size:11px;color:#f0cb81;
+  background:#302516;border:1px solid #634b29;
+  border-radius:9px;padding:9px;margin-bottom:15px;
 }
-.hero {
-  border:1px solid #533374;border-radius:18px;padding:25px 20px;
-  background:radial-gradient(ellipse at top right,#48266b,transparent 65%),
-             linear-gradient(140deg,#261438,#171020);
-  overflow:hidden;
+.hero{
+  padding:25px 20px;border:1px solid #563778;border-radius:18px;
+  background:radial-gradient(ellipse at top right,#48266c,transparent 65%),
+  linear-gradient(140deg,#28163e,#171020);
 }
-.eyebrow {font-size:11px;color:var(--light);letter-spacing:2px}
-h1 {font-size:clamp(30px,8vw,47px);line-height:1.08;margin:13px 0}
-h1 span {color:#c8a4ff}
-.hero p {color:#c2b4d3;font-size:14px;line-height:1.7}
-.primary,.secondary {
-  border:0;border-radius:9px;padding:12px 16px;font-weight:bold;
+.eyebrow{font-size:11px;letter-spacing:2px;color:var(--light)}
+h1{font-size:clamp(30px,8vw,44px);line-height:1.1;margin:13px 0}
+h1 span{color:#c8a4ff}
+.hero p{color:#c2b4d3;font-size:14px;line-height:1.7}
+.section-title{margin:25px 2px 13px;font-size:19px}
+.games{
+  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
 }
-.primary {background:linear-gradient(110deg,#7740d5,#a46aff);color:white}
-.secondary {background:#2a1c3b;color:#e8d8ff;border:1px solid #543875}
-.actions {display:flex;gap:9px;flex-wrap:wrap;margin-top:18px}
-.section-head {
-  display:flex;justify-content:space-between;align-items:center;
-  margin:26px 2px 13px;
+.game-card{
+  border:1px solid var(--line);background:var(--panel);
+  border-radius:14px;overflow:hidden;
 }
-h2 {font-size:19px;margin:0}
-.small {font-size:11px;color:var(--muted)}
-.grid {display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.card {
-  border:1px solid var(--line);border-radius:14px;overflow:hidden;
-  background:var(--panel);
+.game-art{
+  min-height:110px;display:grid;place-items:center;
+  font-size:45px;background:linear-gradient(135deg,#43265f,#21142e);
 }
-.art {
-  min-height:105px;display:grid;place-items:center;
-  font-size:38px;background:linear-gradient(135deg,#40225d,#20152f);
+.game-info{padding:12px}
+.game-info strong{font-size:14px}
+.game-info p{font-size:11px;color:var(--muted);margin:5px 0 10px}
+button{font:inherit;cursor:pointer}
+.play-btn,.action{
+  background:linear-gradient(110deg,#7740d5,#a46aff);
+  color:white;border:0;border-radius:9px;padding:10px 13px;font-weight:bold;
 }
-.art.two {background:linear-gradient(135deg,#3c1f49,#21132b)}
-.art.three {background:linear-gradient(135deg,#28265d,#17172f)}
-.art.four {background:linear-gradient(135deg,#572a4e,#27142d)}
-.card-info {padding:12px}
-.card-info strong {font-size:14px}
-.card-info p {font-size:11px;color:var(--muted);margin:5px 0 0}
-.panel {
-  display:none;background:var(--panel);border:1px solid var(--line);
-  border-radius:15px;padding:17px;margin-top:18px;
+.play-btn{width:100%;font-size:12px}
+.game-screen{
+  display:none;margin-top:20px;padding:16px;
+  border:1px solid var(--line);background:var(--panel);border-radius:16px;
 }
-.panel.active {display:block}
-.field-label {display:block;font-size:12px;color:#d8c8e8;margin:14px 0 8px}
-.amounts {display:grid;grid-template-columns:repeat(2,1fr);gap:9px}
-.amount {
-  padding:12px 6px;background:#21162f;border:1px solid #4a3261;
-  color:white;border-radius:9px;
+.game-screen.active{display:block}
+.game-head{
+  display:flex;align-items:center;justify-content:space-between;gap:10px;
+  margin-bottom:14px;
 }
-.amount.selected {border-color:#c19bff;background:#392052}
-input {
-  width:100%;padding:12px;border-radius:9px;
-  border:1px solid #4a3261;background:#120c1c;color:white;
+.game-head h2{font-size:18px;margin:0}
+.back{
+  background:#2b1c3c;border:1px solid #4d3566;
+  color:#e4d5ff;border-radius:8px;padding:8px 12px;
 }
-.qr-placeholder {
-  margin:14px auto;padding:22px 12px;max-width:240px;
-  min-height:130px;border:1px dashed #8d6ab2;border-radius:12px;
-  text-align:center;color:#d8c8e8;background:#150e20;
+.stats{display:flex;gap:9px;margin-bottom:12px}
+.stat{
+  flex:1;background:#130d1d;border:1px solid #38264d;
+  padding:10px;border-radius:9px;text-align:center;
 }
-.notice {
-  font-size:12px;line-height:1.6;color:#c5b6d4;
-  background:#21162e;border-left:3px solid var(--purple);
-  padding:12px;margin-top:15px;
+.stat small{display:block;color:var(--muted);font-size:10px}
+.stat strong{font-size:18px}
+.board{
+  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;
+  padding:10px;background:#140d20;border-radius:12px;
 }
-footer {text-align:center;color:#80738f;font-size:11px;padding:24px 8px}
-nav {
+.tile{
+  min-height:65px;border-radius:9px;border:1px solid #7753a1;
+  background:linear-gradient(145deg,#5a3780,#332044);
+  color:white;font-size:clamp(22px,6vw,33px);
+  box-shadow:0 3px 0 #21132e;
+}
+.tile.selected{outline:3px solid #d5b5ff;background:#754db0}
+.tile.hidden{visibility:hidden}
+.tile:disabled{cursor:default}
+.message{
+  color:#d8c8e8;text-align:center;font-size:13px;
+  min-height:22px;margin:13px 0;
+}
+.controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
+.memory-board{grid-template-columns:repeat(4,minmax(0,1fr))}
+.memory-card{
+  min-height:65px;border:1px solid #69448d;border-radius:9px;
+  background:#39234f;color:white;font-size:25px;
+}
+.memory-card.open{background:#21162f;border-color:#b08be8}
+.memory-card.done{visibility:hidden}
+footer{text-align:center;padding:25px;color:#80738f;font-size:11px}
+nav{
   position:fixed;bottom:0;left:0;right:0;z-index:6;
   display:flex;justify-content:space-around;
   background:#180f24;border-top:1px solid var(--line);
-  padding:10px 3px calc(10px + env(safe-area-inset-bottom));
+  padding:9px 4px calc(9px + env(safe-area-inset-bottom));
 }
-nav button {
-  border:0;background:transparent;color:#a99bbd;
-  font-size:11px;padding:5px;min-width:58px;
+nav button{
+  border:0;background:transparent;color:#a99bbd;font-size:11px;
 }
-nav button.active {color:#d4b7ff}
-nav b {display:block;font-size:19px;margin-bottom:4px}
-@media(min-width:600px) {
-  .grid {grid-template-columns:repeat(4,minmax(0,1fr))}
-  .art {min-height:135px}
-  .hero {padding:38px}
-  .amounts {grid-template-columns:repeat(4,1fr)}
+nav button b{display:block;font-size:19px;margin-bottom:3px}
+nav button.active{color:#d3b7ff}
+@media(min-width:600px){
+  .games{grid-template-columns:repeat(3,minmax(0,1fr))}
+  .game-art{min-height:140px}
+  .board{gap:10px;padding:14px}
+  .tile,.memory-card{min-height:78px}
 }
 </style>
 </head>
@@ -131,130 +142,235 @@ nav b {display:block;font-size:19px;margin-bottom:4px}
 <header>
   <div class="top">
     <div class="logo">SUMBER<span>48</span></div>
-    <div class="pill">PORTAL EDUKASI</div>
+    <div class="badge">GAME HUB</div>
   </div>
 </header>
 
 <main>
-  <div class="demo">SIMULASI EDUKASI · TIDAK ADA TRANSAKSI NYATA</div>
+  <div class="notice">GAME HIBURAN · KREDIT VIRTUAL GRATIS · TANPA UANG ASLI</div>
 
   <section id="home">
     <div class="hero">
       <div class="eyebrow">WELCOME TO SUMBER48</div>
-      <h1>YOUR WORLD.<br><span>YOUR GAME.</span></h1>
-      <p>Portal hiburan digital dengan tampilan modern,
-      nuansa ungu, dan navigasi yang praktis untuk perangkatmu.</p>
-      <div class="actions">
-        <button class="primary" onclick="showPanel('games')">Jelajahi Katalog</button>
-        <button class="secondary" onclick="showPanel('account')">Akun Demo</button>
-      </div>
+      <h1>PLAY YOUR<br><span>OWN WAY.</span></h1>
+      <p>Mainkan game kasual, tantang ingatanmu, dan kumpulkan skor terbaik.
+      Semua permainan gratis dan berjalan langsung di browser.</p>
     </div>
 
-    <div class="section-head">
-      <h2>Katalog Hiburan</h2><span class="small">CONTOH UI</span>
-    </div>
-    <div class="grid">
-      <article class="card">
-        <div class="art">🎮</div>
-        <div class="card-info"><strong>Arcade Zone</strong><p>Katalog permainan demo</p></div>
+    <h2 class="section-title">Pilih Permainan</h2>
+    <div class="games">
+      <article class="game-card">
+        <div class="game-art">🀄</div>
+        <div class="game-info">
+          <strong>Mahjong Tile Match</strong>
+          <p>Cocokkan ubin yang sama.</p>
+          <button class="play-btn" onclick="startMahjong()">MAINKAN</button>
+        </div>
       </article>
-      <article class="card">
-        <div class="art two">🌌</div>
-        <div class="card-info"><strong>Galaxy World</strong><p>Eksplorasi virtual</p></div>
+      <article class="game-card">
+        <div class="game-art">💎</div>
+        <div class="game-info">
+          <strong>Gem Match</strong>
+          <p>Temukan pasangan permata.</p>
+          <button class="play-btn" onclick="startMahjong()">MAINKAN</button>
+        </div>
       </article>
-      <article class="card">
-        <div class="art three">🕹️</div>
-        <div class="card-info"><strong>Classic Play</strong><p>Hiburan retro</p></div>
+      <article class="game-card">
+        <div class="game-art">🧠</div>
+        <div class="game-info">
+          <strong>Memory Cards</strong>
+          <p>Ingat dan cocokkan kartu.</p>
+          <button class="play-btn" onclick="startMemory()">MAINKAN</button>
+        </div>
       </article>
-      <article class="card">
-        <div class="art four">✨</div>
-        <div class="card-info"><strong>Special Zone</strong><p>Konten pilihan demo</p></div>
-      </article>
     </div>
   </section>
 
-  <section class="panel" id="games">
-    <h2>Katalog Demo</h2>
-    <p class="small">Bagian ini hanya contoh tampilan antarmuka.</p>
-    <div class="notice">Konten permainan uang asli tidak tersedia. Gunakan area ini untuk katalog hiburan yang sah.</div>
-  </section>
-
-  <section class="panel" id="deposit">
-    <h2>Simulasi Pembayaran</h2>
-    <p class="small">Pilih nominal contoh untuk melihat alur antarmuka.</p>
-    <label class="field-label">Pilih nominal simulasi</label>
-    <div class="amounts">
-      <button class="amount selected" onclick="chooseAmount(this)">Rp10.000</button>
-      <button class="amount" onclick="chooseAmount(this)">Rp25.000</button>
-      <button class="amount" onclick="chooseAmount(this)">Rp50.000</button>
-      <button class="amount" onclick="chooseAmount(this)">Rp100.000</button>
+  <section class="game-screen" id="mahjong">
+    <div class="game-head">
+      <h2>🀄 Mahjong Tile Match</h2>
+      <button class="back" onclick="goHome()">Kembali</button>
     </div>
-    <label class="field-label" for="ref">Catatan demo (opsional)</label>
-    <input id="ref" placeholder="Contoh: DEMO-001" maxlength="30">
-    <div class="qr-placeholder">
-      <div style="font-size:30px">▦</div>
-      <strong>AREA QRIS CONTOH</strong>
-      <p class="small">Tidak dapat digunakan untuk membayar</p>
+    <div class="stats">
+      <div class="stat"><small>SKOR</small><strong id="score">0</strong></div>
+      <div class="stat"><small>PASANGAN</small><strong id="pairs">0/8</strong></div>
     </div>
-    <button class="primary" style="width:100%" onclick="simulate()">Lihat Konfirmasi Demo</button>
-    <div class="notice" id="result" aria-live="polite">
-      Ini simulasi antarmuka. Tidak ada uang yang dipindahkan dan status pembayaran tidak diverifikasi.
+    <div class="board" id="mahjongBoard"></div>
+    <div class="message" id="mahjongMessage">Pilih dua ubin yang sama.</div>
+    <div class="controls">
+      <button class="action" onclick="startMahjong()">Ulangi Game</button>
     </div>
   </section>
 
-  <section class="panel" id="account">
-    <h2>Akun Demo</h2>
-    <p class="small">Contoh area profil. Tidak ada akun sungguhan yang dibuat.</p>
-    <div class="notice">Status: mode pratinjau<br>Saldo: tidak tersedia<br>Data akun: tidak disimpan</div>
+  <section class="game-screen" id="memory">
+    <div class="game-head">
+      <h2>🧠 Memory Cards</h2>
+      <button class="back" onclick="goHome()">Kembali</button>
+    </div>
+    <div class="stats">
+      <div class="stat"><small>LANGKAH</small><strong id="moves">0</strong></div>
+      <div class="stat"><small>PASANGAN</small><strong id="memoryPairs">0/8</strong></div>
+    </div>
+    <div class="board memory-board" id="memoryBoard"></div>
+    <div class="message" id="memoryMessage">Buka kartu dan cari pasangan.</div>
+    <div class="controls">
+      <button class="action" onclick="startMemory()">Ulangi Game</button>
+    </div>
   </section>
 
-  <section class="panel" id="help">
-    <h2>Pusat Bantuan</h2>
-    <p class="small">Informasi untuk pengguna website.</p>
-    <div class="notice">Jangan membagikan PIN atau OTP. Gunakan penyedia pembayaran resmi untuk transaksi usaha yang sah.</div>
-  </section>
-
-  <footer>© 2026 SUMBER48 · Antarmuka simulasi edukasi</footer>
+  <footer>© 2026 SUMBER48 · Casual Game Hub</footer>
 </main>
 
 <nav>
-  <button class="active" data-panel="home" onclick="showPanel('home',this)"><b>⌂</b>Beranda</button>
-  <button data-panel="games" onclick="showPanel('games',this)"><b>▦</b>Katalog</button>
-  <button data-panel="deposit" onclick="showPanel('deposit',this)"><b>▣</b>Simulasi</button>
-  <button data-panel="account" onclick="showPanel('account',this)"><b>♙</b>Akun</button>
-  <button data-panel="help" onclick="showPanel('help',this)"><b>?</b>Bantuan</button>
+  <button class="active" onclick="goHome()"><b>⌂</b>Beranda</button>
+  <button onclick="startMahjong()"><b>🀄</b>Mahjong</button>
+  <button onclick="startMemory()"><b>🧠</b>Memory</button>
 </nav>
 
 <script>
-function showPanel(id, button) {
-  document.querySelectorAll('main > section').forEach(section => {
-    section.style.display = section.id === id ? 'block' : 'none';
-  });
-  document.querySelectorAll('nav button').forEach(item => item.classList.remove('active'));
-  const navButton = document.querySelector('nav button[data-panel="' + id + '"]');
-  if (navButton) navButton.classList.add('active');
-  if (id === 'home') {
-    document.getElementById('home').style.display = 'block';
-    document.getElementById('games').style.display = 'none';
-    document.getElementById('deposit').style.display = 'none';
-    document.getElementById('account').style.display = 'none';
-    document.getElementById('help').style.display = 'none';
+const mahjongTiles = ["🀇","🀇","🀈","🀈","🀉","🀉","🀊","🀊",
+                      "🀋","🀋","🀌","🀌","🀍","🀍","🀎","🀎"];
+let mahjongSelected = [];
+let mahjongScore = 0;
+let mahjongFound = 0;
+let mahjongBusy = false;
+
+function shuffle(array){
+  for(let i=array.length-1;i>0;i--){
+    const j=Math.floor(Math.random()*(i+1));
+    [array[i],array[j]]=[array[j],array[i]];
   }
-  window.scrollTo({top:0,behavior:'smooth'});
+  return array;
 }
-function chooseAmount(button) {
-  document.querySelectorAll('.amount').forEach(item => item.classList.remove('selected'));
-  button.classList.add('selected');
+function showScreen(id){
+  document.getElementById("home").style.display=id==="home"?"block":"none";
+  document.querySelectorAll(".game-screen").forEach(s=>{
+    s.classList.toggle("active",s.id===id);
+  });
+  window.scrollTo({top:0,behavior:"smooth"});
 }
-function simulate() {
-  const amount = document.querySelector('.amount.selected').textContent;
-  const ref = document.getElementById('ref').value.trim();
-  document.getElementById('result').textContent =
-    'SIMULASI BERHASIL DITAMPILKAN — Nominal contoh: ' + amount +
-    '. Catatan: ' + (ref || 'tidak diisi') +
-    '. Ini bukan pembayaran nyata; tidak ada transaksi yang diproses.';
+function goHome(){showScreen("home");}
+
+function startMahjong(){
+  mahjongSelected=[];
+  mahjongScore=0;
+  mahjongFound=0;
+  mahjongBusy=false;
+  document.getElementById("score").textContent="0";
+  document.getElementById("pairs").textContent="0/8";
+  document.getElementById("mahjongMessage").textContent="Pilih dua ubin yang sama.";
+  const board=document.getElementById("mahjongBoard");
+  board.innerHTML="";
+  shuffle([...mahjongTiles]).forEach((tile,index)=>{
+    const button=document.createElement("button");
+    button.className="tile";
+    button.textContent=tile;
+    button.dataset.tile=tile;
+    button.dataset.index=index;
+    button.onclick=()=>selectTile(button);
+    board.appendChild(button);
+  });
+  showScreen("mahjong");
 }
-showPanel('home');
+function selectTile(button){
+  if(mahjongBusy||button.classList.contains("hidden")||
+     button.classList.contains("selected"))return;
+  button.classList.add("selected");
+  mahjongSelected.push(button);
+  if(mahjongSelected.length===2){
+    mahjongBusy=true;
+    const [a,b]=mahjongSelected;
+    if(a.dataset.tile===b.dataset.tile){
+      a.classList.add("hidden");
+      b.classList.add("hidden");
+      mahjongScore+=100;
+      mahjongFound++;
+      document.getElementById("score").textContent=mahjongScore;
+      document.getElementById("pairs").textContent=mahjongFound+"/8";
+      document.getElementById("mahjongMessage").textContent="Pasangan cocok! +100 skor";
+      mahjongSelected=[];
+      mahjongBusy=false;
+      if(mahjongFound===8){
+        document.getElementById("mahjongMessage").textContent=
+          "🎉 Hebat! Semua pasangan berhasil ditemukan. Skor: "+mahjongScore;
+      }
+    }else{
+      document.getElementById("mahjongMessage").textContent="Belum cocok, coba lagi.";
+      setTimeout(()=>{
+        a.classList.remove("selected");
+        b.classList.remove("selected");
+        mahjongSelected=[];
+        mahjongBusy=false;
+      },700);
+    }
+  }
+}
+
+const memoryIcons=["🍇","🍉","🍒","🍋","🍓","🥝","🍍","🥥"];
+let memoryOpen=[];
+let memoryDone=0;
+let memoryMoves=0;
+let memoryLock=false;
+
+function startMemory(){
+  memoryOpen=[];
+  memoryDone=0;
+  memoryMoves=0;
+  memoryLock=false;
+  document.getElementById("moves").textContent="0";
+  document.getElementById("memoryPairs").textContent="0/8";
+  document.getElementById("memoryMessage").textContent="Buka kartu dan cari pasangan.";
+  const board=document.getElementById("memoryBoard");
+  board.innerHTML="";
+  shuffle([...memoryIcons,...memoryIcons]).forEach((icon,index)=>{
+    const button=document.createElement("button");
+    button.className="memory-card";
+    button.textContent="?";
+    button.dataset.icon=icon;
+    button.dataset.index=index;
+    button.onclick=()=>flipCard(button);
+    board.appendChild(button);
+  });
+  showScreen("memory");
+}
+function flipCard(button){
+  if(memoryLock||button.classList.contains("done")||
+     button.classList.contains("open"))return;
+  button.classList.add("open");
+  button.textContent=button.dataset.icon;
+  memoryOpen.push(button);
+  if(memoryOpen.length===2){
+    memoryMoves++;
+    document.getElementById("moves").textContent=memoryMoves;
+    memoryLock=true;
+    const [a,b]=memoryOpen;
+    if(a.dataset.icon===b.dataset.icon){
+      a.classList.add("done");
+      b.classList.add("done");
+      memoryDone++;
+      document.getElementById("memoryPairs").textContent=memoryDone+"/8";
+      document.getElementById("memoryMessage").textContent="Pasangan ditemukan!";
+      memoryOpen=[];
+      memoryLock=false;
+      if(memoryDone===8){
+        document.getElementById("memoryMessage").textContent=
+          "🎉 Semua kartu cocok! Total langkah: "+memoryMoves;
+      }
+    }else{
+      document.getElementById("memoryMessage").textContent="Tidak cocok, coba lagi.";
+      setTimeout(()=>{
+        a.classList.remove("open");
+        b.classList.remove("open");
+        a.textContent="?";
+        b.textContent="?";
+        memoryOpen=[];
+        memoryLock=false;
+      },800);
+    }
+  }
+}
+startMahjong();
+goHome();
 </script>
 </body>
 </html>
