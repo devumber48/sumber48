@@ -3,374 +3,294 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="theme-color" content="#10091c">
-<title>SUMBER48 — Game Hub</title>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JAEL PLAY — Game Demo</title>
+
 <style>
-:root {
-  --bg:#10091c;
-  --panel:#1d142b;
-  --line:#3b2852;
-  --purple:#9255f6;
-  --light:#d3b7ff;
-  --text:#faf7ff;
-  --muted:#a99bbd;
-}
 *{box-sizing:border-box}
-body{
-  margin:0;background:var(--bg);color:var(--text);
-  font-family:Arial,sans-serif;
+body{margin:0;background:#090914;color:#fff;font-family:Arial,sans-serif}
+header{padding:18px;background:#151326;border-bottom:1px solid #30264d;display:flex;justify-content:space-between;align-items:center}
+.logo{font-size:22px;font-weight:900;color:#c49aff}
+.balance{background:#251b3c;padding:10px 14px;border-radius:12px;color:#d8baff}
+main{max-width:900px;margin:auto;padding:18px}
+.notice{text-align:center;background:#21182e;color:#d5c4ed;padding:10px;border-radius:10px;font-size:12px}
+nav{display:flex;gap:8px;margin:18px 0}
+nav button,.btn{border:0;border-radius:10px;padding:12px;background:#34244f;color:white;font-weight:bold;cursor:pointer}
+nav button.active,.btn.primary{background:#8d48e8}
+.panel{background:#151326;border:1px solid #30264d;border-radius:16px;padding:18px;margin-bottom:16px}
+h2{margin-top:0;color:#d4b2ff}
+.slot{display:flex;justify-content:center;gap:10px;font-size:48px;background:#090914;padding:20px;border-radius:12px;margin:15px 0}
+input{background:#090914;border:1px solid #44365e;color:white;padding:12px;border-radius:8px;width:100%;margin:8px 0}
+.actions{display:flex;gap:8px;flex-wrap:wrap}
+.big{font-size:38px;font-weight:900;text-align:center;padding:24px;color:#d4b2ff}
+.hidden{display:none}
+.games{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:12px}
+.gamecard{background:#211a35;padding:18px;border-radius:12px;text-align:center}
+small{color:#a99cbe}
+
+.space{
+ height:280px;position:relative;overflow:hidden;border-radius:15px;
+ background:radial-gradient(ellipse at bottom,#29134e 0%,#100b25 55%,#050510 100%);
+ margin:15px 0;
 }
-header{
-  position:sticky;top:0;z-index:5;
-  background:#170f23;border-bottom:1px solid var(--line);
-  padding:15px;
+.space:before{
+ content:"";position:absolute;inset:0;
+ background-image:radial-gradient(white 1px,transparent 1px),
+ radial-gradient(#bda5ff 1px,transparent 1px);
+ background-size:45px 45px,75px 75px;opacity:.5;
 }
-.top{
-  max-width:900px;margin:auto;display:flex;
-  justify-content:space-between;align-items:center;
+.astronaut{
+ position:absolute;left:15%;bottom:20px;font-size:58px;
+ filter:drop-shadow(0 0 15px #b77cff);
+ transform:rotate(-20deg);
+ transition:bottom .1s linear,left .1s linear;
 }
-.logo{font-size:23px;font-weight:900;letter-spacing:2px}
-.logo span{color:var(--light)}
-.badge{
-  color:#d6bdff;background:#2b1b40;border:1px solid #65438c;
-  border-radius:20px;padding:6px 10px;font-size:11px;
+.multiplier{
+ position:absolute;width:100%;top:25px;text-align:center;
+ font-size:42px;font-weight:900;color:#d5a8ff;
+ text-shadow:0 0 20px #a44cff;z-index:2;
 }
-main{max-width:900px;margin:auto;padding:17px 14px 90px}
-.notice{
-  text-align:center;font-size:11px;color:#f0cb81;
-  background:#302516;border:1px solid #634b29;
-  border-radius:9px;padding:9px;margin-bottom:15px;
+.space-status{
+ position:absolute;bottom:12px;width:100%;text-align:center;
+ color:#c9b8e9;z-index:2;
 }
-.hero{
-  padding:25px 20px;border:1px solid #563778;border-radius:18px;
-  background:radial-gradient(ellipse at top right,#48266c,transparent 65%),
-  linear-gradient(140deg,#28163e,#171020);
-}
-.eyebrow{font-size:11px;letter-spacing:2px;color:var(--light)}
-h1{font-size:clamp(30px,8vw,44px);line-height:1.1;margin:13px 0}
-h1 span{color:#c8a4ff}
-.hero p{color:#c2b4d3;font-size:14px;line-height:1.7}
-.section-title{margin:25px 2px 13px;font-size:19px}
-.games{
-  display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;
-}
-.game-card{
-  border:1px solid var(--line);background:var(--panel);
-  border-radius:14px;overflow:hidden;
-}
-.game-art{
-  min-height:110px;display:grid;place-items:center;
-  font-size:45px;background:linear-gradient(135deg,#43265f,#21142e);
-}
-.game-info{padding:12px}
-.game-info strong{font-size:14px}
-.game-info p{font-size:11px;color:var(--muted);margin:5px 0 10px}
-button{font:inherit;cursor:pointer}
-.play-btn,.action{
-  background:linear-gradient(110deg,#7740d5,#a46aff);
-  color:white;border:0;border-radius:9px;padding:10px 13px;font-weight:bold;
-}
-.play-btn{width:100%;font-size:12px}
-.game-screen{
-  display:none;margin-top:20px;padding:16px;
-  border:1px solid var(--line);background:var(--panel);border-radius:16px;
-}
-.game-screen.active{display:block}
-.game-head{
-  display:flex;align-items:center;justify-content:space-between;gap:10px;
-  margin-bottom:14px;
-}
-.game-head h2{font-size:18px;margin:0}
-.back{
-  background:#2b1c3c;border:1px solid #4d3566;
-  color:#e4d5ff;border-radius:8px;padding:8px 12px;
-}
-.stats{display:flex;gap:9px;margin-bottom:12px}
-.stat{
-  flex:1;background:#130d1d;border:1px solid #38264d;
-  padding:10px;border-radius:9px;text-align:center;
-}
-.stat small{display:block;color:var(--muted);font-size:10px}
-.stat strong{font-size:18px}
-.board{
-  display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:8px;
-  padding:10px;background:#140d20;border-radius:12px;
-}
-.tile{
-  min-height:65px;border-radius:9px;border:1px solid #7753a1;
-  background:linear-gradient(145deg,#5a3780,#332044);
-  color:white;font-size:clamp(22px,6vw,33px);
-  box-shadow:0 3px 0 #21132e;
-}
-.tile.selected{outline:3px solid #d5b5ff;background:#754db0}
-.tile.hidden{visibility:hidden}
-.tile:disabled{cursor:default}
-.message{
-  color:#d8c8e8;text-align:center;font-size:13px;
-  min-height:22px;margin:13px 0;
-}
-.controls{display:flex;justify-content:center;gap:9px;flex-wrap:wrap}
-.memory-board{grid-template-columns:repeat(4,minmax(0,1fr))}
-.memory-card{
-  min-height:65px;border:1px solid #69448d;border-radius:9px;
-  background:#39234f;color:white;font-size:25px;
-}
-.memory-card.open{background:#21162f;border-color:#b08be8}
-.memory-card.done{visibility:hidden}
-footer{text-align:center;padding:25px;color:#80738f;font-size:11px}
-nav{
-  position:fixed;bottom:0;left:0;right:0;z-index:6;
-  display:flex;justify-content:space-around;
-  background:#180f24;border-top:1px solid var(--line);
-  padding:9px 4px calc(9px + env(safe-area-inset-bottom));
-}
-nav button{
-  border:0;background:transparent;color:#a99bbd;font-size:11px;
-}
-nav button b{display:block;font-size:19px;margin-bottom:3px}
-nav button.active{color:#d3b7ff}
-@media(min-width:600px){
-  .games{grid-template-columns:repeat(3,minmax(0,1fr))}
-  .game-art{min-height:140px}
-  .board{gap:10px;padding:14px}
-  .tile,.memory-card{min-height:78px}
-}
+button:disabled{opacity:.45;cursor:not-allowed}
 </style>
 </head>
+
 <body>
 <header>
-  <div class="top">
-    <div class="logo">SUMBER<span>48</span></div>
-    <div class="badge">GAME HUB</div>
-  </div>
+ <div class="logo">✦ JAEL PLAY</div>
+ <div class="balance">Kredit: <b id="balance">1000</b></div>
 </header>
 
 <main>
-  <div class="notice">GAME HIBURAN · KREDIT VIRTUAL GRATIS · TANPA UANG ASLI</div>
-
-  <section id="home">
-    <div class="hero">
-      <div class="eyebrow">WELCOME TO SUMBER48</div>
-      <h1>PLAY YOUR<br><span>OWN WAY.</span></h1>
-      <p>Mainkan game kasual, tantang ingatanmu, dan kumpulkan skor terbaik.
-      Semua permainan gratis dan berjalan langsung di browser.</p>
-    </div>
-
-    <h2 class="section-title">Pilih Permainan</h2>
-    <div class="games">
-      <article class="game-card">
-        <div class="game-art">🀄</div>
-        <div class="game-info">
-          <strong>Mahjong Tile Match</strong>
-          <p>Cocokkan ubin yang sama.</p>
-          <button class="play-btn" onclick="startMahjong()">MAINKAN</button>
-        </div>
-      </article>
-      <article class="game-card">
-        <div class="game-art">💎</div>
-        <div class="game-info">
-          <strong>Gem Match</strong>
-          <p>Temukan pasangan permata.</p>
-          <button class="play-btn" onclick="startMahjong()">MAINKAN</button>
-        </div>
-      </article>
-      <article class="game-card">
-        <div class="game-art">🧠</div>
-        <div class="game-info">
-          <strong>Memory Cards</strong>
-          <p>Ingat dan cocokkan kartu.</p>
-          <button class="play-btn" onclick="startMemory()">MAINKAN</button>
-        </div>
-      </article>
-    </div>
-  </section>
-
-  <section class="game-screen" id="mahjong">
-    <div class="game-head">
-      <h2>🀄 Mahjong Tile Match</h2>
-      <button class="back" onclick="goHome()">Kembali</button>
-    </div>
-    <div class="stats">
-      <div class="stat"><small>SKOR</small><strong id="score">0</strong></div>
-      <div class="stat"><small>PASANGAN</small><strong id="pairs">0/8</strong></div>
-    </div>
-    <div class="board" id="mahjongBoard"></div>
-    <div class="message" id="mahjongMessage">Pilih dua ubin yang sama.</div>
-    <div class="controls">
-      <button class="action" onclick="startMahjong()">Ulangi Game</button>
-    </div>
-  </section>
-
-  <section class="game-screen" id="memory">
-    <div class="game-head">
-      <h2>🧠 Memory Cards</h2>
-      <button class="back" onclick="goHome()">Kembali</button>
-    </div>
-    <div class="stats">
-      <div class="stat"><small>LANGKAH</small><strong id="moves">0</strong></div>
-      <div class="stat"><small>PASANGAN</small><strong id="memoryPairs">0/8</strong></div>
-    </div>
-    <div class="board memory-board" id="memoryBoard"></div>
-    <div class="message" id="memoryMessage">Buka kartu dan cari pasangan.</div>
-    <div class="controls">
-      <button class="action" onclick="startMemory()">Ulangi Game</button>
-    </div>
-  </section>
-
-  <footer>© 2026 SUMBER48 · Casual Game Hub</footer>
-</main>
+<div class="notice">
+ DEMO GAME • Kredit virtual saja • Tidak menggunakan uang asli
+</div>
 
 <nav>
-  <button class="active" onclick="goHome()"><b>⌂</b>Beranda</button>
-  <button onclick="startMahjong()"><b>🀄</b>Mahjong</button>
-  <button onclick="startMemory()"><b>🧠</b>Memory</button>
+ <button class="active" onclick="show('slots',this)">🎰 Slots</button>
+ <button onclick="show('crash',this)">🚀 Spaceman</button>
+ <button onclick="show('arcade',this)">🕹️ Arcade</button>
 </nav>
 
+<!-- SLOTS -->
+<section id="slots" class="panel">
+<h2>🎰 Lucky Slots</h2>
+
+<div class="slot">
+ <span id="s1">🍒</span>
+ <span id="s2">⭐</span>
+ <span id="s3">🍋</span>
+</div>
+
+<label>Taruhan kredit virtual</label>
+<input id="slotBet" type="number" value="10" min="1">
+
+<div class="actions">
+ <button class="btn primary" onclick="spin()">SPIN</button>
+ <button class="btn" onclick="reset()">Reset Kredit</button>
+</div>
+
+<p id="slotMsg">Cocokkan tiga simbol untuk mendapat hadiah!</p>
+</section>
+
+<!-- SPACEMAN -->
+<section id="crash" class="panel hidden">
+<h2>🚀 Spaceman Crash</h2>
+
+<div class="space">
+ <div class="multiplier" id="mult">1.00×</div>
+ <div class="astronaut" id="astronaut">🧑‍🚀</div>
+ <div class="space-status" id="spaceStatus">READY FOR TAKEOFF</div>
+</div>
+
+<label>Taruhan kredit virtual</label>
+<input id="crashBet" type="number" value="10" min="1">
+
+<div class="actions">
+ <button class="btn primary" id="startCrash" onclick="startCrash()">MULAI</button>
+ <button class="btn" id="cashout" onclick="cashout()" disabled>CASH OUT</button>
+</div>
+
+<p id="crashMsg">Mulai ronde, lalu cash out sebelum multiplier berhenti.</p>
+</section>
+
+<!-- ARCADE -->
+<section id="arcade" class="panel hidden">
+<h2>🕹️ Tebak Angka</h2>
+<p>Tebak angka 1–5. Tebakan benar mendapat 4× kredit taruhan.</p>
+
+<input id="guessBet" type="number" value="10" min="1">
+<input id="guess" type="number" min="1" max="5" placeholder="Masukkan angka 1 sampai 5">
+
+<button class="btn primary" onclick="guessNumber()">MAIN</button>
+<p id="guessMsg">Semoga beruntung!</p>
+</section>
+
+<section class="panel">
+<h2>Game tersedia</h2>
+<div class="games">
+ <div class="gamecard">🎰<p>Lucky Slots</p><small>Spin simbol</small></div>
+ <div class="gamecard">🚀<p>Spaceman</p><small>Multiplier virtual</small></div>
+ <div class="gamecard">🕹️<p>Tebak Angka</p><small>Arcade mini game</small></div>
+</div>
+</section>
+</main>
+
 <script>
-const mahjongTiles = ["🀇","🀇","🀈","🀈","🀉","🀉","🀊","🀊",
-                      "🀋","🀋","🀌","🀌","🀍","🀍","🀎","🀎"];
-let mahjongSelected = [];
-let mahjongScore = 0;
-let mahjongFound = 0;
-let mahjongBusy = false;
+let balance=1000;
+let running=false;
+let multiplier=1;
+let crashTimer=null;
+let bet=0;
+let crashPoint=0;
 
-function shuffle(array){
-  for(let i=array.length-1;i>0;i--){
-    const j=Math.floor(Math.random()*(i+1));
-    [array[i],array[j]]=[array[j],array[i]];
+function update(){
+ document.getElementById('balance').textContent=balance;
+}
+
+function show(id,button){
+ document.querySelectorAll('main section[id]').forEach(s=>s.classList.add('hidden'));
+ document.getElementById(id).classList.remove('hidden');
+ document.querySelectorAll('nav button').forEach(b=>b.classList.remove('active'));
+ button.classList.add('active');
+}
+
+function reset(){
+ balance=1000;
+ update();
+ document.getElementById('slotMsg').textContent='Kredit virtual direset.';
+}
+
+function spin(){
+ let b=Number(document.getElementById('slotBet').value);
+
+ if(b<1||b>balance){
+  alert('Kredit tidak cukup atau taruhan tidak valid.');
+  return;
+ }
+
+ balance-=b;
+
+ let symbols=['🍒','⭐','🍋','💎','🔔','7️⃣'];
+ let a=Array.from({length:3},()=>symbols[Math.floor(Math.random()*symbols.length)]);
+
+ ['s1','s2','s3'].forEach((id,i)=>{
+  document.getElementById(id).textContent=a[i];
+ });
+
+ let win=0;
+
+ if(a[0]===a[1]&&a[1]===a[2])win=b*8;
+ else if(a[0]===a[1]||a[1]===a[2]||a[0]===a[2])win=b*2;
+
+ balance+=win;
+ update();
+
+ document.getElementById('slotMsg').textContent=
+ win?'Menang '+win+' kredit virtual!':'Belum menang. Coba lagi!';
+}
+
+function startCrash(){
+ if(running)return;
+
+ bet=Number(document.getElementById('crashBet').value);
+
+ if(bet<1||bet>balance){
+  alert('Kredit tidak cukup atau taruhan tidak valid.');
+  return;
+ }
+
+ balance-=bet;
+ update();
+
+ running=true;
+ multiplier=1;
+ crashPoint=1.2+Math.random()*5;
+
+ document.getElementById('astronaut').textContent='🧑‍🚀';
+ document.getElementById('astronaut').style.bottom='20px';
+ document.getElementById('astronaut').style.left='15%';
+
+ document.getElementById('startCrash').disabled=true;
+ document.getElementById('cashout').disabled=false;
+ document.getElementById('crashMsg').textContent='Ronde berjalan...';
+ document.getElementById('spaceStatus').textContent='FLYING...';
+
+ crashTimer=setInterval(()=>{
+  multiplier+=0.04+multiplier*0.012;
+
+  document.getElementById('mult').textContent=
+   multiplier.toFixed(2)+'×';
+
+  let astronaut=document.getElementById('astronaut');
+
+  astronaut.style.bottom=Math.min(220,20+multiplier*30)+'px';
+  astronaut.style.left=Math.min(75,15+multiplier*8)+'%';
+
+  if(multiplier>=crashPoint){
+   endCrash();
   }
-  return array;
-}
-function showScreen(id){
-  document.getElementById("home").style.display=id==="home"?"block":"none";
-  document.querySelectorAll(".game-screen").forEach(s=>{
-    s.classList.toggle("active",s.id===id);
-  });
-  window.scrollTo({top:0,behavior:"smooth"});
-}
-function goHome(){showScreen("home");}
-
-function startMahjong(){
-  mahjongSelected=[];
-  mahjongScore=0;
-  mahjongFound=0;
-  mahjongBusy=false;
-  document.getElementById("score").textContent="0";
-  document.getElementById("pairs").textContent="0/8";
-  document.getElementById("mahjongMessage").textContent="Pilih dua ubin yang sama.";
-  const board=document.getElementById("mahjongBoard");
-  board.innerHTML="";
-  shuffle([...mahjongTiles]).forEach((tile,index)=>{
-    const button=document.createElement("button");
-    button.className="tile";
-    button.textContent=tile;
-    button.dataset.tile=tile;
-    button.dataset.index=index;
-    button.onclick=()=>selectTile(button);
-    board.appendChild(button);
-  });
-  showScreen("mahjong");
-}
-function selectTile(button){
-  if(mahjongBusy||button.classList.contains("hidden")||
-     button.classList.contains("selected"))return;
-  button.classList.add("selected");
-  mahjongSelected.push(button);
-  if(mahjongSelected.length===2){
-    mahjongBusy=true;
-    const [a,b]=mahjongSelected;
-    if(a.dataset.tile===b.dataset.tile){
-      a.classList.add("hidden");
-      b.classList.add("hidden");
-      mahjongScore+=100;
-      mahjongFound++;
-      document.getElementById("score").textContent=mahjongScore;
-      document.getElementById("pairs").textContent=mahjongFound+"/8";
-      document.getElementById("mahjongMessage").textContent="Pasangan cocok! +100 skor";
-      mahjongSelected=[];
-      mahjongBusy=false;
-      if(mahjongFound===8){
-        document.getElementById("mahjongMessage").textContent=
-          "🎉 Hebat! Semua pasangan berhasil ditemukan. Skor: "+mahjongScore;
-      }
-    }else{
-      document.getElementById("mahjongMessage").textContent="Belum cocok, coba lagi.";
-      setTimeout(()=>{
-        a.classList.remove("selected");
-        b.classList.remove("selected");
-        mahjongSelected=[];
-        mahjongBusy=false;
-      },700);
-    }
-  }
+ },100);
 }
 
-const memoryIcons=["🍇","🍉","🍒","🍋","🍓","🥝","🍍","🥥"];
-let memoryOpen=[];
-let memoryDone=0;
-let memoryMoves=0;
-let memoryLock=false;
+function cashout(){
+ if(!running)return;
 
-function startMemory(){
-  memoryOpen=[];
-  memoryDone=0;
-  memoryMoves=0;
-  memoryLock=false;
-  document.getElementById("moves").textContent="0";
-  document.getElementById("memoryPairs").textContent="0/8";
-  document.getElementById("memoryMessage").textContent="Buka kartu dan cari pasangan.";
-  const board=document.getElementById("memoryBoard");
-  board.innerHTML="";
-  shuffle([...memoryIcons,...memoryIcons]).forEach((icon,index)=>{
-    const button=document.createElement("button");
-    button.className="memory-card";
-    button.textContent="?";
-    button.dataset.icon=icon;
-    button.dataset.index=index;
-    button.onclick=()=>flipCard(button);
-    board.appendChild(button);
-  });
-  showScreen("memory");
+ let winnings=Math.floor(bet*multiplier);
+ balance+=winnings;
+ update();
+
+ document.getElementById('crashMsg').textContent=
+ 'Cash out berhasil: '+winnings+' kredit virtual.';
+
+ document.getElementById('spaceStatus').textContent='CASHED OUT!';
+ stopCrash();
 }
-function flipCard(button){
-  if(memoryLock||button.classList.contains("done")||
-     button.classList.contains("open"))return;
-  button.classList.add("open");
-  button.textContent=button.dataset.icon;
-  memoryOpen.push(button);
-  if(memoryOpen.length===2){
-    memoryMoves++;
-    document.getElementById("moves").textContent=memoryMoves;
-    memoryLock=true;
-    const [a,b]=memoryOpen;
-    if(a.dataset.icon===b.dataset.icon){
-      a.classList.add("done");
-      b.classList.add("done");
-      memoryDone++;
-      document.getElementById("memoryPairs").textContent=memoryDone+"/8";
-      document.getElementById("memoryMessage").textContent="Pasangan ditemukan!";
-      memoryOpen=[];
-      memoryLock=false;
-      if(memoryDone===8){
-        document.getElementById("memoryMessage").textContent=
-          "🎉 Semua kartu cocok! Total langkah: "+memoryMoves;
-      }
-    }else{
-      document.getElementById("memoryMessage").textContent="Tidak cocok, coba lagi.";
-      setTimeout(()=>{
-        a.classList.remove("open");
-        b.classList.remove("open");
-        a.textContent="?";
-        b.textContent="?";
-        memoryOpen=[];
-        memoryLock=false;
-      },800);
-    }
-  }
+
+function endCrash(){
+ document.getElementById('crashMsg').textContent=
+ 'Crash di '+crashPoint.toFixed(2)+'× — ronde berakhir.';
+
+ document.getElementById('spaceStatus').textContent='🚀 CRASHED!';
+ document.getElementById('astronaut').textContent='💥';
+
+ stopCrash();
 }
-startMahjong();
-goHome();
+
+function stopCrash(){
+ running=false;
+ clearInterval(crashTimer);
+
+ document.getElementById('startCrash').disabled=false;
+ document.getElementById('cashout').disabled=true;
+}
+
+function guessNumber(){
+ let b=Number(document.getElementById('guessBet').value);
+ let g=Number(document.getElementById('guess').value);
+
+ if(b<1||b>balance||g<1||g>5){
+  alert('Masukkan taruhan dan angka 1–5 yang valid.');
+  return;
+ }
+
+ balance-=b;
+
+ let answer=Math.floor(Math.random()*5)+1;
+ let win=g===answer?b*4:0;
+
+ balance+=win;
+ update();
+
+ document.getElementById('guessMsg').textContent=
+ 'Angka keluar: '+answer+'. '+
+ (win?'Kamu mendapat '+win+' kredit virtual!':'Belum tepat!');
+}
+
+update();
 </script>
 </body>
 </html>
